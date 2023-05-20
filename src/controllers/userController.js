@@ -221,11 +221,13 @@ export const postEdit = async (req, res) => {
   //const id= req.session.user.id;랑 같은 의미
   //const { name, email, username, location } = req.body;
   //name:name 이렇게 써도 되는데 js는 똑똑해서 반복하지 않아도 됨
+
+  const isHeroku = process.env.NODE_ENV === "production";
   try {
     const updateUser = await User.findByIdAndUpdate(
       _id,
       {
-        avatarUrl: file ? file.location : avatarUrl,
+        avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
         name,
         email,
         username,
