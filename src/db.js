@@ -1,3 +1,4 @@
+//mongoDB 연결 부분.
 import mongoose from "mongoose";
 
 mongoose.connect(process.env.DB_URL);

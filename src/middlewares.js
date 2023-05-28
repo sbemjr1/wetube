@@ -1,3 +1,5 @@
+//미들웨어 정의 검색해서 그 역할인것만 숙지.
+
 import multer from "multer";
 import multerS3 from "multer-s3";
 import asw from "aws-sdk";
