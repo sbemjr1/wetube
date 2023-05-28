@@ -12,8 +12,10 @@ import apiRouter from "./routers/apiRouter";
 const app = express();
 const logger = morgan("dev");
 
+//pug view templete 설정
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -41,6 +43,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//url 경로 설정
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);

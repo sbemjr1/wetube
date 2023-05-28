@@ -1,6 +1,7 @@
 extends base.pug
 
 block content
+    //-video 컨트롤러를 직접 생성한 부분이라고만 알면 될듯함.
     div#videoContainer(data-id=video._id)
         video(src=video.fileUrl)
         div#videoControls.videoControls
@@ -20,6 +21,7 @@ block content
                 span#fullScreen
                     i.fas.fa-expand
 
+    //-video 조회를 하면 보이는 부분.
     div.video__data
         p.video__title=video.title
         small.video__owner Uploaded by 
@@ -29,6 +31,7 @@ block content
             a(href=`${video.id}/edit`) Edit Video &rarr;
             br
             a(href=`${video.id}/delete`) Delete Video &rarr;
+    //-login한 유저만 볼 수 있도록 if 사용
     if loggedIn
         div.video__comments
             form.video__comment-form#commentForm
@@ -44,5 +47,6 @@ block content
                         span.delete__icon ❌
     block scripts 
     script(src="/static/js/videoPlayer.js")
+    //-login한 상태일때만 첨부.
     if loggedIn
         script(src="/static/js/commentSection.js")

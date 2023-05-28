@@ -7,8 +7,10 @@ block content
             button#actionBtn.social__btn Start Recording
         if errorMessage
             span=errorMessage
+        //-video 업로드를 위한 입력 폼.
         form(method="POST", enctype="multipart/form-data")
             label(for="video") Video File
+            //-accept는 파일 유형 설정.
             input(type="file", accept="video/*", required, id="video", name="video")
             label(for="thumb") Thumbnail File
             input(type="file", accept="image/*", required, id="thumb", name="thumb")

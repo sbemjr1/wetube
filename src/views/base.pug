@@ -1,12 +1,15 @@
 include mixins/message
 
+//-base를 만든이유는 모든 views 파일에 공통적으로 사용되는 부분을 정의하면 반복을 줄일 수 있음.
 doctype html 
 html(lang="ko")
     head 
+        //-#{}을 사용하면 js에서 입력한 값이 대입됨.
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
         link(rel="stylesheet" href="/static/css/styles.css")
     body 
+        //-error,info,success를 메시지로 표현하기 위한 부분
         if messages.error 
             +message("error", messages.error)
         if messages.info 
@@ -15,8 +18,10 @@ html(lang="ko")
             +message("success", messages.success)
         include partials/header
         main
+            //-block content 부분은 다른 파일에서 원하는 내용을 추가할 수 있는 공간.
             block content
         include partials/footer
     script(src="/static/js/main.js")
     block scripts
+    //-fontawesome이라는 사이트에서 제공하는 그림을 이용하기 위해 추가함
     script(src="https://kit.fontawesome.com/11de28f2c5.js" crossorigin="anonymous")

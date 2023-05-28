@@ -1,8 +1,12 @@
+//-base를 첨부하여 간단하게 home을 구현
 extends base
+//-video가 보이는 형태를 구성함.
 include mixins/video
 
+//-block content에 입력한 내용이 base에 추가돼서 출력됨. 해당 내용은 home에만 적용.
 block content 
     div.video-grid
+        //-each를 사용해주면  videos의 video갯수만큼 반복돼서 모두 출력함.
         each video in videos
             +video(video)
         else 

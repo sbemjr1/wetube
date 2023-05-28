@@ -1,3 +1,4 @@
+//시작파일로 설정한 파일
 import "regenerator-runtime";
 import "dotenv/config";
 import "./db";
